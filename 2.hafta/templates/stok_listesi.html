@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block title %}Bakoba Gensu - Stok Listesi{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h2><i class="fas fa-boxes me-2"></i>Ürün Listesi</h2>
+        <p class="text-muted">Envanterinizi yönetin</p>
+    </div>
+    <a href="{{ url_for('stok_ekle') }}" class="btn btn-primary">
+        <i class="fas fa-plus me-2"></i>Ürün ekle
+    </a>
+</div>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    <input type="text" class="form-control" placeholder="Bir ürün arayın...">
+                </div>
+            <div class="col-md-2">
+                <button class="btn btn-outline-primary w-100">Filtre</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Ürün Adı</th>
+                        <th scope="col">Kategori</th>
+                        <th scope="col">Miktar</th>
+                        <th scope="col">Birim fiyatı</th>
+                        <th scope="col">Toplam değer</th>
+                        <th scope="col">Durum</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for urun in urunler %}
+                    <tr>
+                        <td>{{ urun.id }}</td>
+                        <td>{{ urun.urun_adi }}</td>
+                        <td>{{ urun.kategori }}</td>
+                        <td>{{ urun.miktar }}</td>
+                        <td>{{ urun.fiyat }} €</td>
+                        <td>{{ urun.miktar * urun.fiyat }} €</td>
+                        <td>
+                            {% if urun.miktar == 0 %}
+                            <span class="badge bg-danger">Ayrılmak</span>
+                            {% elif urun.miktar < 10 %}
+                            <span class="badge bg-warning">Zayıf</span>
+                            {% else %}
+                            <span class="badge bg-success">Stokta var</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-sm" role="group">
+                                <a href="{{ url_for('stok_duzenle', id=urun.id) }}" class="btn btn-outline-primary" title="Değiştirmek için">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <button type="button" class="btn btn-outline-danger" title="SİLMEK">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-info" title="Detaylar">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <span class="text-muted">{{ urunler|length }} ürünün 1 ila {{ urunler|length }}'ü gösteriliyor</span>
+            </div>
+            <nav aria-label="Navigation des pages">
+                <ul class="pagination mb-0">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Öncesi</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Takip etme</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+{% endblock %}</div>
+            <div class="col-md-3">
+                <select class="form-select">
+                    <option selected>Tüm kategoriler</option>
+                    <option>Oyunlar</option>
+                    <option>Kitaplar</option>
+                    <option>Yazılım</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-select">
+                    <option selected>Tüm durumlar</option>
+                    <option>Stokta var</option>
+                    <option>Düşük stok</option>
+                    <option>Stoklar tükendi</option>
+                </select>
+            </div>

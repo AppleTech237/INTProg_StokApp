@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+
+{% block title %}Bakoba Gensu - Kontrol Paneli{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h2><i class="fas fa-tachometer-alt me-2"></i>Kontrol Paneli</h2>
+        <p class="text-muted">Envanterinizin genel görünümü ve temel istatistikler</p>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-3 mb-3">
+        <div class="card bg-primary text-white h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="card-title">Toplam ürünler</h6>
+                        <h2 class="mb-0">215</h2>
+                    </div>
+                    <i class="fas fa-box fa-3x opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-success text-white h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="card-title">Stok değeri</h6>
+                        <h2 class="mb-0">45 230 €</h2>
+                    </div>
+                    <i class="fas fa-euro-sign fa-3x opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-warning text-white h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="card-title">Düşük stok</h6>
+                        <h2 class="mb-0">12</h2>
+                    </div>
+                    <i class="fas fa-exclamation-triangle fa-3x opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-danger text-white h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="card-title">Stoklar tükendi</h6>
+                        <h2 class="mb-0">3</h2>
+                    </div>
+                    <i class="fas fa-times-circle fa-3x opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="fas fa-chart-line me-2"></i>Stok gelişimi</h5>
+                <div>
+                    <select class="form-select form-select-sm">
+                        <option>Geçen ay</option>
+                        <option>Geçen 3 ay</option>
+                        <option>Geçen yil</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="chart-container" style="height: 300px; display: flex; align-items: center; justify-content: center;">
+                    <p class="text-muted text-center">Hisse senedi evrim grafiği<br>(Hayali veriler)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-clipboard-list me-2"></i>Son etkinlikler</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="badge bg-success me-2">Giriş</span>
+                            <span>Stoklara 20 adet antivirüs eklendi</span>
+                        </div>
+                        <small class="text-muted">2 saat önce</small>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="badge bg-danger me-2">Çıkış</span>
+                            <span>5 taşınabilir antivirüs stoktan çekildi</span>
+                        </div>
+                        <small class="text-muted">5 saat önce</small>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="badge bg-warning me-2">Uyarı</span>
+                            <span>"PS5 oyunları" için düşük stok</span>
+                        </div>
+                        <small class="text-muted">1 gün önce</small>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="badge bg-info me-2">Güncelleme</span>
+                            <span>15 ürün için güncellenmiş fiyatlar</span>
+                        </div>
+                        <small class="text-muted">2 gün önce</small>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="badge bg-success me-2">Giriş</span>
+                            <span>Stoklara 100 sesli kitap eklendi</span>
+                        </div>
+                        <small class="text-muted">3 gün önce</small>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-footer text-center">
+                <a href="#" class="text-decoration-none">Tüm etkinlikleri görün</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-tags me-2"></i>Kategoriye göre</h5>
+            </div>
+            <div class="card-body">
+                <div class="chart-container" style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                    <p class="text-muted text-center">Kategorilerin pasta grafiği<br>(Hayali veriler)</p>
+                </div>
+                <div class="mt-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span>Kittaplar</span>
+                        <span class="badge bg-primary">45%</span>
+                    </div>
+                    <div class="progress mb-3" style="height: 10px;">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 45%"></div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span>Oyunlar</span>
+                        <span class="badge bg-success">30%</span>
+                    </div>
+                    <div class="progress mb-3" style="height: 10px;">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 30%"></div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span>Yazılım</span>
+                        <span class="badge bg-info">15%</span>
+                    </div>
+                    <div class="progress mb-3" style="height: 10px;">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 15%"></div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span>Diger</span>
+                        <span class="badge bg-secondary">10%</span>
+                    </div>
+                    <div class="progress mb-3" style="height: 10px;">
+                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 10%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-exclamation-circle me-2"></i>Stok Uyarıları</h5>
+            </div>
+            <div class="card-body p-0">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="text-danger">Avast</span>
+                            <div><small class="text-muted">Stok: 5 (Min: 10)</small></div>
+                        </div>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Emir</a>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="text-warning">Norton</span>
+                            <div><small class="text-muted">Stok: 7 (Min: 10)</small></div>
+                        </div>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Emir</a>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="text-danger">Kaspersky</span>
+                            <div><small class="text-muted">Stok: 0 (Min: 5)</small></div>
+                        </div>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Emir</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-footer text-center">
+                <a href="#" class="text-decoration-none">Tüm uyarıları görün</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
